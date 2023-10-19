@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+source ./ssh-key_generator.sh
 #Ejecutar en root
 # Got root?
 myWHOAMI=$(whoami)
@@ -35,28 +35,17 @@ fi
 timedatectl set-timezone UTC
 timedatectl set-ntp true
 
-CRON_DIR="/etc/crontab"
+main() {
+    generate_ssh_key
+    set_crons
+    
+    exit
+}
+
+main
 
 apt update && apt install -y tcpdump
-echo "Directorios y scripts"
-mkdir /home/tsec/PCAP
-#
-echo "Configurando Demonios..."
-sed -i -e '$i\/home/tsec/SENSOR/tcpdump_start.sh &' /etc/rc.local
-#
-function CMIN(){
-    grep -A 1 Daily $CRON_DIR |head -n 2 | tail -n 1 | cut -c 1-2 
-}
-#
-function CHOUR(){
-    grep -A 1 Daily $CRON_DIR |head -n 2 | tail -n 1 |cut -c 3-5
-}
-#
-echo "#">> $CRON_DIR
-echo "#Stop tcpdump & check captures everyday" >> $CRON_DIR
-echo $(CMIN)  $(expr $(CHOUR) - 1) "* * *      root    killall tcpdump && sleep 30 && scp /home/tsec/PCAP/tcpdump.pcap root@192.17.200.101:/home/" >> $CRON_DIR
-echo ""
-#
+
 #PROTECTION
 #chattr +i *
 #chmod 600 /home/tsec/CHECKS /home/tsec/PCAP /home/tsec/SCRIPT

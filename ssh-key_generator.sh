@@ -10,6 +10,11 @@ generate_ssh_key() {
     echo "Debes proporcionar la dirección IP del servidor."
     return 1
   fi
+    # Utilizar una expresión regular para verificar la sintaxis de la dirección IP
+  if [[ ! $server_ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    echo "La dirección IP '$server_ip' no tiene una sintaxis válida."
+    return 1
+  fi
   # Copiar la clave SSH al servidor
   ssh-copy-id "$server_ip"
   # Comprobar si la clave se copió correctamente
@@ -19,4 +24,4 @@ generate_ssh_key() {
     echo "No se pudo copiar la clave SSH al servidor."
   fi
 }
-generate_ssh_key
+
