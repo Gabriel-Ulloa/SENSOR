@@ -22,3 +22,18 @@ set_crons(){
     echo ""
     #
 }
+
+
+#grep -A 1 "images are available" crontab | awk NR==2 | sed -i 's/\(* *\*\) \*/\1 1-6/' crontab
+
+#grep -A 1 "Check if" crontab | awk NR==2 
+
+#sed -i 's/*\* \*/* * 1-6/' crontab
+
+#sed -i 's/26 12 \* \*/26 12 1-6 */' /ruta/del/archivo
+
+#sed -i 's/\(* *\*\) \*/\1 1-6/' /ruta/del/archivo
+
+#scp /etc/grc.conf 192.17.200.101:/home/
+
+grep -A 2 "images are available" crontab 

@@ -35,16 +35,18 @@ fi
 timedatectl set-timezone UTC
 timedatectl set-ntp true
 
+mkdir /home/tsec/PCAP
+
 main() {
     generate_ssh_key
-    set_crons
+    cron_jobs
     
     exit
 }
 
 main
 
-apt update && apt install -y tcpdump
+apt install tcpdump pcp cockpit-pcp 
 
 #PROTECTION
 #chattr +i *
