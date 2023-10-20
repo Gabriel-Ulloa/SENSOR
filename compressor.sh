@@ -19,4 +19,3 @@ sleep 10
 rm $temp/$(date +%A)_catches.tar.gz && rm -r $catches/*
 
 }
-packer
