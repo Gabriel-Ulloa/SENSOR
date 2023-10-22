@@ -32,25 +32,16 @@ else
   exit 1
 fi
 #
-#Estableciendo zona horaria..."
-timedatectl set-timezone UTC
-timedatectl set-ntp true
-
-mkdir /home/tsec/PCAP
-
 main() {
+    mkdir /home/tsec/PCAP
     generate_ssh_key
+    cp crontab /etc/
     cron_jobs
-    
+    set_services
     exit
 }
 
 main
-
-cp tcpdump.service /etc/systemd/system/
-cp tcpdump.timer /etc/systemd/system/
-systemctl daemon-reload
-systemctl enable tcpdump.timer
 
 apt install tcpdump pcp cockpit-pcp 
 

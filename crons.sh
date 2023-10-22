@@ -30,9 +30,7 @@ set_crons
 set_crons(){
     local ip="$server_ip"
     CRON_DIR="/etc/crontab"
-    #Configurando arranque TCPDUMP"
-    sed -i -e '$i\/home/tsec/SENSOR/tcpdump_start.sh &' /etc/rc.local
-
+  
     function CMIN(){
     grep -A 1 Daily $CRON_DIR |head -n 2 | tail -n 1 | cut -c 1-2 
     }
@@ -40,9 +38,9 @@ set_crons(){
     function CHOUR(){
     grep -A 1 Daily $CRON_DIR |head -n 2 | tail -n 1 |cut -c 3-5
     }
-    #COmprimir Honeypots
+    #Stop TCPDump and compress catches
     echo "#Stop tcpdump everyday, copy pcap to server" >> $CRON_DIR
-    echo $(CMIN)  $(expr $(CHOUR) - 1) "* * 1-6     root    killall tcpdump && sleep 30 && scp /home/tsec/PCAP/tcpdump.pcap root@$ip:/home/" >> $CRON_DIR
+    echo $(CMIN)  $(expr $(CHOUR) - 1) "* * 1-6     root    systemctl stop tcpdump.service && systemctl stop tcpdump.timer && sleep 10 &&  /home/tsec/SENSOR/compressor.sh" >> $CRON_DIR
     echo ""
     #
 }
