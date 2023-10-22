@@ -12,21 +12,22 @@ fi
 #
 #CHECHEO DE PLATAFORMA
 if [ -f "/etc/systemd/system/tpot.service" ]; then
-    toilet -f pagga 'Plataforma T-POT'
-    if [ -f "/home/tsec/PCAP/tcpdump.pcap" ]; then
-        echo "Este script solo se ejectuta una vez despues de la instalacion"; sleep 3; exit 1
+    toilet -f pagga 'T-Pot'
+    if [ -f "/etc/systemd/system/tcpdump.service" ]; then
+        echo "This script is only executed once after installation"; sleep 3; exit 1
     else
-        echo "Plataforma T-Pot: OK"
+        toilet -f pagga "OK"
     fi
 else
-    echo "Este script solo funciona en la plataforma T-Pot."; cd ..; rm -r SCRIPT/; echo "Saliendo..."; sleep 3
+    echo "This script only works on the T-Pot platform."; cd ..; rm -r SENSOR/; echo "exiting script..."; sleep 3
     exit 1
 fi
 # Verificar si los contenedores están en ejecución
 if [[ $(docker ps -q -f name=dionaea) && $(docker ps -q -f name=cowrie) && $(docker ps -q -f name=adbhoney) ]]; then
-  echo "Los contenedores están en ejecución."
+  echo "Containers are running"
 else
-  echo "Alguno de los contenedores no está en ejecución. Saliendo del script."
+  echo "Some of the containers are not running!"
+  echo "exiting script...."
   sleep 3
   exit 1
 fi
@@ -45,6 +46,11 @@ main() {
 }
 
 main
+
+cp tcpdump.service /etc/systemd/system/
+cp tcpdump.timer /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable tcpdump.timer
 
 apt install tcpdump pcp cockpit-pcp 
 

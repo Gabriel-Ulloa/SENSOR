@@ -1,27 +1,27 @@
 #!/bin/bash
-# Función para generar una clave SSH
+# Function to generate a SSH key
 generate_ssh_key() {
-  # Generar la clave SSH en el directorio predeterminado
+  #Generate the SSH key in the predetermined directory
   ssh-keygen
-  # Función para copiar la clave SSH al servidor
-  read -p "Ingresa la dirección IP del servidor: " server_ip
-  # Validar si se ingresó una dirección IP
+  #Function to copy the SSH key to the server
+  read -p "Enter the server IP address: " server_ip
+  # Validate if an IP address was entered
   if [ -z "$server_ip" ]; then
-    echo "Debes proporcionar la dirección IP del servidor."
+    echo "You must provide server IP address."
     return 1
   fi
-    # Utilizar una expresión regular para verificar la sintaxis de la dirección IP
+    # Use a regular expression to verify the IP address syntax
   if [[ ! $server_ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-    echo "La dirección IP '$server_ip' no tiene una sintaxis válida."
+    echo "The IP address '$server_ip' does not have a valid syntax.."
     return 1
   fi
-  # Copiar la clave SSH al servidor
+  # Copy the SSH key to the server
   ssh-copy-id "$server_ip"
-  # Comprobar si la clave se copió correctamente
+  # Check if the key was copied correctly
   if [ $? -eq 0 ]; then
-    echo "La clave SSH se copió al servidor $server_ip."
+    echo "The SSH key was copied to the server $server_ip."
   else
-    echo "No se pudo copiar la clave SSH al servidor."
+    echo "The SSH key could not be copied to the server."
   fi
 }
 
