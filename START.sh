@@ -1,7 +1,4 @@
 #!/bin/bash
-source ./ssh-key_generator.sh
-source ./crons.sh
-source ./services.sh
 #Ejecutar en root
 # Got root?
 myWHOAMI=$(whoami)
@@ -34,6 +31,10 @@ else
   exit 1
 fi
 #
+source ./ssh-key_generator.sh
+source ./crons.sh
+source ./services.sh
+
 main() {
     mkdir /home/tsec/PCAP
     generate_ssh_key
