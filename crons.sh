@@ -39,7 +39,7 @@ set_crons(){
     grep -A 1 Daily $CRON_DIR |head -n 2 | tail -n 1 |cut -c 3-5
     }
     #Stop TCPDump and compress catches
-    echo "#Stop tcpdump everyday, copy pcap to server" >> $CRON_DIR
+    echo "#Stop tcpdump & copy pcap to server" >> $CRON_DIR
     echo $(CMIN)  $(expr $(CHOUR) - 1) "* * 1-6     root    systemctl stop tcpdump.service && systemctl stop tcpdump.timer && sleep 10 &&  /home/tsec/SENSOR/compressor.sh" >> $CRON_DIR
     echo ""
     #

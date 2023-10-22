@@ -1,5 +1,7 @@
 #!/bin/bash
 source ./ssh-key_generator.sh
+source ./crons.sh
+source ./services.sh
 #Ejecutar en root
 # Got root?
 myWHOAMI=$(whoami)
