@@ -42,7 +42,7 @@ main() {
     cp crontab /etc/
     cron_jobs
     set_services
-    apt install tcpdump pcp cockpit-pcp
+    apt install -y tcpdump pcp cockpit-pcp
     toilet -f ivrit '...Instalado'
     sleep 3
     dialog --keep-window --no-ok --no-cancel --backtitle "$myBACKTITLE" --title "[ Reiniciando el sistema... ]" --pause "" 7 80 5
