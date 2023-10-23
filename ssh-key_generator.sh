@@ -1,4 +1,3 @@
-#!/bin/bash
 # Function to generate a SSH key
 generate_ssh_key() {
   #Generate the SSH key in the predetermined directory

@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 packer(){
 
@@ -10,7 +11,7 @@ for subdirs in "${honeys[@]}"; do
     cp -r "$subdirs" "$catches"
 done
 
-mv $pcap $catches/$(date +%A).pcap
+cp $pcap $catches/$(date +%A).pcap
 tar -cvf $temp/catches.tar $catches
 tar -czvf $temp/$(date +%A)_catches.tar.gz $temp/catches.tar && rm $temp/catches.tar
 sleep 2                
@@ -20,3 +21,5 @@ sleep 3
 rm $temp/$(date +%A)_catches.tar.gz && rm -r $catches/*
 
 }
+
+packer
