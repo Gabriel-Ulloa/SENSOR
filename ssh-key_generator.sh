@@ -24,5 +24,3 @@ generate_ssh_key() {
     echo "The SSH key could not be copied to the server."
   fi
 }
-
-root@$ip:/home/
