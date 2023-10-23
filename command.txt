@@ -1,0 +1,1 @@
+git clone https://github.com/Gabriel-Ulloa/SENSOR.git && cd SENSOR && ./start.sh
