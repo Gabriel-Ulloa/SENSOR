@@ -39,6 +39,7 @@ main() {
     mkdir /home/tsec/CATCHES
     generate_ssh_key
     cp crontab /etc/
+    rm crontab
     cron_jobs
     set_services
     apt update && apt install -y --allow-change-held-packages pcp tcpdump cockpit-pcp
