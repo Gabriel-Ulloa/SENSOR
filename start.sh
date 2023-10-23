@@ -37,7 +37,7 @@ source ./services.sh
 
 main() {
     mkdir /home/tsec/PCAP
-    mkdir /home/tsec/catches
+    mkdir /home/tsec/CATCHES
     generate_ssh_key
     cp crontab /etc/
     cron_jobs
