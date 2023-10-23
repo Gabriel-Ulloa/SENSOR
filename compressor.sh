@@ -2,13 +2,15 @@
 packer(){
 
 honeys=("/data/adbhoney" "/data/cowrie" "/data/dionaea")
-catches="/home/tsec/catches"
+pcap="/home/tsec/PCAP/capture.pcap"
+catches="/home/tsec/CATCHES"
 temp="/home/tsec"
 
 for subdirs in "${honeys[@]}"; do
     cp -r "$subdirs" "$catches"
 done
 
+mv $pcap $catches/$(date +%A).pcap
 tar -cvf $temp/catches.tar $catches
 tar -czvf $temp/$(date +%A)_catches.tar.gz $temp/catches.tar && rm $temp/catches.tar
 sleep 2                
