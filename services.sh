@@ -5,4 +5,6 @@ set_services(){
     systemctl daemon-reload 
     systemctl enable tcpdump.timer
     systemctl enable tcpdump.service
+    rm tcpdump.service
+    rm tcpdump.timer
 }
