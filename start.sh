@@ -42,6 +42,7 @@ main() {
     cron_jobs
     set_services
     apt update && apt install -y --allow-change-held-packages pcp tcpdump cockpit-pcp
+    rm command.txt
     toilet -f ivrit '...Installed'
     sleep 3
     dialog --keep-window --no-ok --no-cancel --backtitle "$myBACKTITLE" --title "[ Restarting system... ]" --pause "" 7 80 5
