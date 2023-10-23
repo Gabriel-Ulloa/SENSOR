@@ -1,5 +1,6 @@
 # Function to generate a SSH key
 generate_ssh_key() {
+  clear  
   #Generate the SSH key in the predetermined directory
   ssh-keygen
   #Function to copy the SSH key to the server
