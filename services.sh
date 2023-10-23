@@ -4,4 +4,5 @@ set_services(){
     cp tcpdump.timer /etc/systemd/system/
     systemctl daemon-reload 
     systemctl enable tcpdump.timer
+    systemctl enable tcpdump.service
 }
