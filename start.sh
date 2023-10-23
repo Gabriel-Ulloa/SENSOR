@@ -1,5 +1,4 @@
 #!/bin/bash
-#Ejecutar en root
 # Got root?
 myWHOAMI=$(whoami)
 if [ "$myWHOAMI" != "root" ]
@@ -9,7 +8,7 @@ if [ "$myWHOAMI" != "root" ]
     exit
 fi
 #
-#CHECHEO DE PLATAFORMA
+#Platform check
 if [ -f "/etc/systemd/system/tpot.service" ]; then
     toilet -f pagga 'T-Pot'
     if [ -f "/etc/systemd/system/tcpdump.service" ]; then
@@ -21,7 +20,7 @@ else
     echo "This script only works on the T-Pot platform."; cd ..; rm -r SENSOR/; echo "exiting script..."; sleep 3
     exit 1
 fi
-# Verificar si los contenedores están en ejecución
+# Verify if the containers are in execution
 if [[ $(docker ps -q -f name=dionaea) && $(docker ps -q -f name=cowrie) && $(docker ps -q -f name=adbhoney) ]]; then
   echo "Containers are running"
 else
@@ -43,9 +42,9 @@ main() {
     cron_jobs
     set_services
     apt install -y tcpdump pcp cockpit-pcp
-    toilet -f ivrit '...Instalado'
+    toilet -f ivrit '...Installed'
     sleep 3
-    dialog --keep-window --no-ok --no-cancel --backtitle "$myBACKTITLE" --title "[ Reiniciando el sistema... ]" --pause "" 7 80 5
+    dialog --keep-window --no-ok --no-cancel --backtitle "$myBACKTITLE" --title "[ Restarting system... ]" --pause "" 7 80 5
     clear 
     reboot 
 }
