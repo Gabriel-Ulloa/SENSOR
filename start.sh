@@ -32,7 +32,7 @@ else
 fi
 #
 source ./ssh-key_generator.sh
-source ./crons.sh
+source ./cronjobs.sh
 source ./services.sh
 
 main() {
