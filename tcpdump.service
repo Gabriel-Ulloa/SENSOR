@@ -3,7 +3,7 @@ Description=TCPDump Service
 After=network.target
 
 [Service]
-ExecStart=/usr/sbin/tcpdump -i eth0 -w /home/tsec/PCAP/$(date +%A).pcap
+ExecStart=/usr/bin/tcpdump -i eth0 -w /home/tsec/PCAP/capture.pcap
 
 [Install]
 WantedBy=multi-user.target
