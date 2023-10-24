@@ -19,7 +19,7 @@ generate_ssh_key() {
   ssh-copy-id "$server_ip"
   # Check if the key was copied correctly
   if [ $? -eq 0 ]; then
-    echo $server_ip > server.txt
+    echo $server_ip > /usr/local/bin/server
   else
     echo "The SSH key could not be copied to the server."
   fi

@@ -1,10 +1,11 @@
 #
 set_services(){
-    cp tcpdump.service /etc/systemd/system/
-    cp tcpdump.timer /etc/systemd/system/
+    
+    local sys="/etc/systemd/system/"
+    mv tcpdump.service $sys
+    mv tcpdump.timer $sys
     systemctl daemon-reload 
     systemctl enable tcpdump.timer
     systemctl enable tcpdump.service
-    rm tcpdump.service
-    rm tcpdump.timer
+
 }

@@ -38,12 +38,11 @@ main() {
     mkdir /home/tsec/PCAP
     mkdir /home/tsec/CATCHES
     generate_ssh_key
-    cp crontab /etc/
-    rm crontab
+    mv crontab /etc/ && mv compressor /usr/local/bin/
     cron_jobs
     set_services
     apt update && apt install -y --allow-change-held-packages pcp tcpdump cockpit-pcp
-    rm command.txt
+    cd && rm -r SENSOR
     toilet -f ivrit '...Installed'
     sleep 3
     dialog --keep-window --no-ok --no-cancel --backtitle "$myBACKTITLE" --title "[ Restarting system... ]" --pause "" 7 80 5

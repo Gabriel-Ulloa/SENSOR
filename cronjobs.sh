@@ -20,7 +20,7 @@ $myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6      root    systemctl stop tpot && dock
 $myRANDOM_MINUTE $myRANDOM_HOUR * * 0     root    apt-fast autoclean -y && apt-fast autoremove -y && apt-fast update -y && apt-fast upgrade -y && sleep 10 && reboot
 
 # Daily stop tcpdump & copy pcap to server 
-$myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    systemctl stop tcpdump.service && systemctl stop tcpdump.timer && sleep 10 &&  /home/tsec/SENSOR/compressor.sh"
+$myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    systemctl stop tcpdump.service && systemctl stop tcpdump.timer && sleep 10 &&  /usr/local/bin/compressor"
 
 echo "$myCRONJOBS" | tee -a /etc/crontab
 
