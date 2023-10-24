@@ -37,10 +37,10 @@ source ./services.sh
 main() {
     mkdir /home/tsec/PCAP
     mkdir /home/tsec/CATCHES
+    mv crontab /etc/ && mv compressor /usr/local/bin/
     cron_jobs
     set_services
     generate_ssh_key
-    mv crontab /etc/ && mv compressor /usr/local/bin/
     apt update && apt install -y --allow-change-held-packages pcp tcpdump cockpit-pcp
     toilet -f ivrit '...Installed'
     sleep 3

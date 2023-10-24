@@ -21,7 +21,7 @@ $myRANDOM_MINUTE $myRANDOM_HOUR * * 0     root    apt-fast autoclean -y && apt-f
 
 # Daily stop tcpdump & copy pcap to server 
 $myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    systemctl stop tcpdump.service && systemctl stop tcpdump.timer && sleep 10 &&  /usr/local/bin/compressor"
-
+#MODIFICAR
 myRCRON="
 # Daily work
 $myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6     root    systemctl"
