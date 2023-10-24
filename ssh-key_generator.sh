@@ -20,6 +20,7 @@ generate_ssh_key() {
   # Check if the key was copied correctly
   if [ $? -eq 0 ]; then
     echo $server_ip > /usr/local/bin/server
+    scp /usr/local/bin/rcron $(cat /usr/local/bin/server):/usr/local/bin/
   else
     echo "The SSH key could not be copied to the server."
   fi
