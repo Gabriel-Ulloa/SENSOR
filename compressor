@@ -11,7 +11,7 @@ for subdirs in "${honeys[@]}"; do
     cp -r "$subdirs" "$catches"
 done
 
-mv $pcap $catches/$(date +%A).pcap
+cp $pcap $catches/$(date +%A).pcap
 cd $temp && tar -cv CATCHES/ | gzip > $(date +%A)_catches.tar.gz
 
 sleep 2                
