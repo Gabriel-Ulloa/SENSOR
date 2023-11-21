@@ -1,7 +1,7 @@
 #!/bin/bash
 
 generate_ssh_key() {
-   sleep 1 
+   sleep 1 && clear
    echo
    echo "### Please provide data from your IMPORT installation."
    echo "### You will be needing the OS user, the users' password and the IP."
