@@ -2,6 +2,11 @@
 
 generate_ssh_key() {
    sleep 1 && clear 
+   echo
+   echo "### Please provide data from your IMPORT installation."
+   echo "### You will be needing the OS user, the users' password and the IP."
+   echo
+
    read -p "Remote host username: " remote_user
    read -p "Remote host IP: " remote_ip
   
@@ -24,8 +29,8 @@ generate_ssh_key() {
   if [ $? -eq 0 ]; then
     echo "$remote_user@$remote_ip" > /usr/local/bin/server
     scp /usr/local/bin/rcron $(cat /usr/local/bin/server):/home/import/
+    echo "Connection established!"
   else
     echo "The SSH key could not be copied to the server."
   fi
 }
-#generate_ssh_key

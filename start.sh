@@ -30,9 +30,10 @@ else
   exit 1
 fi
 #
-source ./ssh-key_generator.sh
-source ./cronjobs.sh
-source ./services.sh
+. ./ssh-key_generator.sh
+. ./cronjobs.sh
+. ./services.sh
+. ./deploy.sh
 
 main() {
     mkdir /home/tsec/PCAP
@@ -41,6 +42,7 @@ main() {
     cron_jobs
     set_services
     generate_ssh_key
+    deploy_hive
     apt update && apt install -y --allow-change-held-packages pcp tcpdump cockpit-pcp
     toilet -f ivrit '...Installed'
     sleep 3
