@@ -1,6 +1,6 @@
 #
 cron_jobs(){
-myRANDOM_HOUR=$(shuf -i 2-22 -n 1)
+myRANDOM_HOUR=$(shuf -i 3-21 -n 1) 
 myRANDOM_MINUTE=$(shuf -i 0-59 -n 1)
 myDEL_HOUR=$(($myRANDOM_HOUR+1))
 mySTOP_HOUR=$(($myRANDOM_HOUR-1))
@@ -20,11 +20,11 @@ $myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6      root    systemctl stop tpot && dock
 $myRANDOM_MINUTE $myRANDOM_HOUR * * 0     root    apt-fast autoclean -y && apt-fast autoremove -y && apt-fast update -y && apt-fast upgrade -y && sleep 10 && reboot
 
 # Daily stop tcpdump & copy pcap to server 
-$myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    /bin/systemctl stop tcpdump.service && /bin/systemctl stop tcpdump.timer && sleep 10 && bash /usr/local/bin/compressor"
+$myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    /bin/systemctl stop tcpdump.service && sleep 10 && bash /usr/local/bin/compressor"
 #
 myRCRON="
 # Daily work
-$myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6     root    systemctl"
+$myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6     /usr/local/bin/decompressor "
 
 echo "$myCRONJOBS" | tee -a /etc/crontab
 echo "$myRCRON" > /usr/local/bin/rcron
