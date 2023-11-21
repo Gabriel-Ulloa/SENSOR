@@ -1,6 +1,7 @@
 #!/bin/bash
 
 generate_ssh_key() {
+   sleep 1 && clear 
    read -p "Remote host username: " remote_user
    read -p "Remote host IP: " remote_ip
   
