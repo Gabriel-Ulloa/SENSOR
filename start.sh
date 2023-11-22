@@ -1,5 +1,5 @@
 #!/bin/bash
-# Got root?
+#
 myWHOAMI=$(whoami)
 if [ "$myWHOAMI" != "root" ]
   then
