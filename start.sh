@@ -34,11 +34,13 @@ fi
 . ./cronjobs.sh
 . ./services.sh
 . ./deploy.sh
+. ./crontab.sh
 
 main() {
     mkdir /home/tsec/PCAP
     mkdir /home/tsec/CATCHES
-    mv crontab /etc/ && mv compressor /usr/local/bin/
+    mv compressor /usr/local/bin/
+    crontab
     cron_jobs
     set_services
     generate_ssh_key
