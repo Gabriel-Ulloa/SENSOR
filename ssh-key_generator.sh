@@ -28,7 +28,7 @@ generate_ssh_key() {
   # Check if the key was copied correctly
   if [ $? -eq 0 ]; then
     echo "$remote_user@$remote_ip" > /usr/local/bin/server
-    scp /usr/local/bin/rcron $(cat /usr/local/bin/server):/home/import/
+    scp /usr/local/bin/.rcron $(cat /usr/local/bin/server):/home/import/
     echo "Connection established!"
   else
     echo "The SSH key could not be copied to the server."

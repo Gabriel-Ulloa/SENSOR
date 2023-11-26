@@ -27,6 +27,6 @@ myRCRON="
 $myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6   root  /usr/local/bin/decompressor"
 
 echo "$myCRONJOBS" | tee -a /etc/crontab
-echo "$myRCRON" > /usr/local/bin/rcron
+echo "$myRCRON" > /usr/local/bin/.rcron
 
 }
