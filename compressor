@@ -14,7 +14,7 @@ done
 cp $pcap $catches/$(date +%A).pcap
 cd $temp && tar -cv CATCHES/ | gzip > $(date +%A)_catches.tar.gz
 sleep 2                
-scp $temp/$(date +%A)_catches.tar.gz $(cat /usr/local/bin/server):/home/import/sensor_catches
+scp $temp/$(date +%A)_catches.tar.gz $(cat /usr/local/bin/server):/home/import/Deployment/sensor_catches
 sleep 3
 #rm $temp/$(date +%A)_catches.tar.gz && rm -r $catches/*
 
