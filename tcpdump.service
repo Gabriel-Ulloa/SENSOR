@@ -5,6 +5,7 @@ After=network.target
 [Service]
 ExecStartPre=/bin/sleep 15
 ExecStart=/usr/bin/tcpdump -i eth0 -w /home/tsec/PCAP/capture.pcap
+ExecStop=/bin/sh -c 'kill -2 $MAINPID'
 Restart=on-failure
 RestartSec=10
 

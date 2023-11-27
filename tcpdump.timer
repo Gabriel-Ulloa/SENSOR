@@ -1,9 +1,0 @@
-[Unit]
-Description=Run tcpdump from Monday to Saturday on system startup
-
-[Timer]
-OnCalendar=Mon-Sat *-*-* 00:00:00
-Persistent=true
-
-[Install]
-WantedBy=timers.target
