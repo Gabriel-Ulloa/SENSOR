@@ -3,7 +3,7 @@ Description=TCPDump Service
 After=network.target
 
 [Service]
-ExecStartPre=/bin/sleep 30
+ExecStartPre=/bin/sleep 15
 ExecStart=/usr/bin/tcpdump -i eth0 -w /home/tsec/PCAP/capture.pcap
 Restart=on-failure
 RestartSec=10
