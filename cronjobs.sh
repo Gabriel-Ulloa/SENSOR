@@ -24,7 +24,7 @@ $myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    /usr/local/bin/stopper.sh"
 #
 myRCRON="
 # Daily work
-$myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6   root  /usr/local/bin/decompressor"
+$myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6   root  /usr/local/bin/decompressor.sh"
 
 echo "$myCRONJOBS" | tee -a /etc/crontab
 echo "$myRCRON" > /usr/local/bin/.rcron
