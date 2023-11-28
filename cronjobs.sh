@@ -20,7 +20,7 @@ $myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6      root    systemctl stop tpot && dock
 $myRANDOM_MINUTE $myRANDOM_HOUR * * 0     root    apt-fast autoclean -y && apt-fast autoremove -y && apt-fast update -y && apt-fast upgrade -y && sleep 10 && reboot
 
 # Daily stop tcpdump & copy pcap to server 
-$myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    /bin/systemctl stop tcpdump.service && sleep 10 && bash /usr/local/bin/compressor"
+$myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    /usr/local/bin/stopper.sh"
 #
 myRCRON="
 # Daily work

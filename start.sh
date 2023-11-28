@@ -39,7 +39,7 @@ fi
 main() {
     mkdir /home/tsec/PCAP
     mkdir /home/tsec/CATCHES
-    mv compressor /usr/local/bin/
+    mv "compressor.sh" "stopper.sh" /usr/local/bin/
     crontab
     cron_jobs
     set_services
