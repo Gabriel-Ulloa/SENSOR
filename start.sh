@@ -48,7 +48,7 @@ main() {
     apt update && apt install -y --allow-change-held-packages pcp tcpdump cockpit-pcp
     toilet -f ivrit '...Installed'
     sleep 3
-    dialog --keep-window --no-ok --no-cancel --backtitle "$myBACKTITLE" --title "[ Restarting system... ]" --pause "" 7 80 5
+    dialog --keep-window --no-ok --no-cancel --backtitle "INSTALLED" --title "[ Restarting system... ]" --pause "" 7 80 5
     rm -r /home/tsec/SENSOR
     clear 
     reboot 
