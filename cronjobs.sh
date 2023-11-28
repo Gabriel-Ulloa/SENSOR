@@ -23,7 +23,7 @@ $myRANDOM_MINUTE $myRANDOM_HOUR * * 0     root    apt-fast autoclean -y && apt-f
 $myRANDOM_MINUTE $mySTOP_HOUR * * 1-6     root    /usr/local/bin/stopper.sh"
 #
 myRCRON="
-# Daily work
+# Daily filtering
 $myRANDOM_MINUTE $myRANDOM_HOUR * * 1-6   root  /usr/local/bin/decompressor.sh"
 
 echo "$myCRONJOBS" | tee -a /etc/crontab
