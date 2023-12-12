@@ -1,6 +1,7 @@
 SENSOR
 
 Overview
+
 SENSOR is a robust cyber-security framework designed to proactively engage with external threats through a collection of specialized honeypots. It simulates vulnerabilities to bait and capture malicious activities, providing an intricate layer of security for network systems.
 
 Features
