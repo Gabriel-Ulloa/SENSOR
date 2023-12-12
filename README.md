@@ -13,7 +13,9 @@ Capture and Storage: Prior to daily reboots, a tailored script transfers and com
 Installation
 
 1.- Copy the command located in command.txt
-2.- Paste the command into the terminal of your T-Pot Hive-Sensor deployment.
+
+2.- Paste the command into the terminal of your T-Pot Hive-Sensor deployment
+
 3.- Follow the instructions
 
 Usage
