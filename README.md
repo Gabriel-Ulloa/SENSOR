@@ -1,19 +1,18 @@
-# SENSOR
+# SENSOR Repository
+
+Welcome to the SENSOR repository, part of our integrated network security and forensic analysis solution, deployed on a T-Pot platform with the HIVE-SENSOR installation.
 
 ## Overview
 
-SENSOR is a robust cyber-security framework designed to proactively engage with external threats through a collection of specialized honeypots. It simulates vulnerabilities to bait and capture malicious activities, providing an intricate layer of security for network systems.
+This repository is the first step in our security workflow, where various honeypots like Dionaea, Cowrie, and ADBHoney are deployed to simulate vulnerabilities and capture malicious traffic.
 
-## Features
+## Operation
 
-### Honeypots Integration
-Incorporates three dynamic honeypots - Dionaea, Cowrie, and ADBhoney - each offering unique services to entice potential attackers.
-### Traffic Capture 
-Utilizes tcpdump to monitor all incoming traffic, meticulously logging interactions for analysis.
-### Automated Maintenance
-Automated daily reboots from Monday to Saturday, with comprehensive maintenance and updates every Sunday.
-### Capture and Storage
-Prior to daily reboots, a tailored script transfers and compresses relevant captured data, including pcap files and intercepted binaries, to a secure storage location.
+The SENSOR platform is exposed to the internet via a public IP address to capture attacks. It incorporates:
+- **Active Honeypots**: Dionaea, Cowrie, and ADBHoney to simulate vulnerabilities.
+- **Traffic Capture**: Utilizing `tcpdump` to capture all incoming traffic.
+- **Maintenance Schedule**: Automated reboots and maintenance, including updates and directory cleanup.
+- **Data Transfer**: Before daily reboots, a script transfers pcap files and logs to the `CATCHES` folder for compression and SCP transfer to the `sensor_catches` directory.
 
 ## Installation
 
@@ -21,18 +20,13 @@ Prior to daily reboots, a tailored script transfers and compresses relevant capt
 2. Paste the command into the terminal of your T-Pot Hive-Sensor deployment
 3. Follow the instructions
 
-## Usage
+## Next Steps
 
-The platform is scheduled for automatic interaction with potential threats. For manual control and further customization, refer to cronjobs.sh and services.sh.
+Post-capture, the data processed by SENSOR is handed over to the IMPORT repository for further refinement and analysis, operated on a Security Onion setup with the import PCAP installation.
 
 ## Contribution
 
-Contributions to SENSOR are welcome. Please submit pull requests for any enhancements or fixes.
+For guidelines on how to contribute to the SENSOR repository, please refer to our contributing guidelines document.
 
-## License
+Thank you for contributing to the SENSOR repository, helping us create a safer digital environment.
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-## Acknowledgments
-
-SENSOR is part of a larger initiative to enhance network security. We extend our gratitude to all contributors and the open-source community for their ongoing support.
